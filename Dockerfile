@@ -16,5 +16,6 @@ COPY pyproject.toml uv.lock* ./
 RUN uv sync --frozen --no-install-project || uv sync --no-install-project
 
 COPY src/ ./src/
+COPY data/ ./data/
 
 WORKDIR /app/src
