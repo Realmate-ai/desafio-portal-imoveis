@@ -87,6 +87,10 @@ CELERY_BEAT_SCHEDULE = {
         "task": "properties.import_nexo",
         "schedule": crontab(minute=0),
     },
+    "import-nexo-properties-dawn": {
+        "task": "properties.import_nexo",
+        "schedule": crontab(hour=3, minute=0),
+    },
 }
 
 NEXO_FEED_PATH = Path(os.environ.get("NEXO_FEED_PATH", PROJECT_ROOT / "data" / "nexo_catalogo.xml"))
