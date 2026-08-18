@@ -3,6 +3,8 @@
 import os
 from pathlib import Path
 
+from celery.schedules import crontab
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = BASE_DIR.parent
 
@@ -71,6 +73,13 @@ CELERY_BROKER_URL = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
 CELERY_RESULT_BACKEND = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
 CELERY_TIMEZONE = TIME_ZONE
 CELERY_TASK_TRACK_STARTED = True
+
+CELERY_BEAT_SCHEDULE = {
+    "import-nexo-properties": {
+        "task": "properties.import_nexo",
+        "schedule": crontab(minute=0),
+    },
+}
 
 NEXO_FEED_PATH = Path(os.environ.get("NEXO_FEED_PATH", PROJECT_ROOT / "data" / "nexo_catalogo.xml"))
 
