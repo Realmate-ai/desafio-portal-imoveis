@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 from pytest_django.fixtures import Settings
 
-FIXTURES_DIR = Path(__file__).resolve().parent.parent / "fixtures"
+FIXTURES_DIR = Path(__file__).resolve().parent / "fixtures"
 
 
 @pytest.fixture

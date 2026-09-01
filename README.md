@@ -46,16 +46,16 @@ src/
 ├── config/                     configuração do Django e do Celery
 │   ├── settings.py             inclui CELERY_BEAT_SCHEDULE
 │   └── celery.py
-└── apps/properties/
-    ├── models/
-    │   ├── property.py         o anúncio normalizado
-    │   └── import_run.py       registro de cada execução de import
-    ├── services/importers/     um importador por portal parceiro
-    │   └── nexo.py
-    ├── tasks/                  entrypoints assíncronos
-    ├── api/                    serializers, filtros e viewsets
-    ├── fixtures/               recortes de catálogo usados nos testes
-    └── tests/
+├── apps/properties/
+│   ├── models/
+│   │   ├── property.py         o anúncio normalizado
+│   │   └── import_run.py       registro de cada execução de import
+│   ├── services/importers/     um importador por portal parceiro
+│   │   └── nexo.py
+│   ├── tasks/                  entrypoints assíncronos
+│   └── api/                    serializers, filtros e viewsets
+└── tests/
+    └── fixtures/               recortes de catálogo usados nos testes
 ```
 
 ## Fluxo de importação
